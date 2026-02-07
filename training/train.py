@@ -5,7 +5,7 @@ from models.gcn import GCN
 from models.gat import GAT
 
 
-def train(model, data, optimizer, epochs=200):
+def train_model(model, data, optimizer, epochs=200):
     for epoch in range(epochs):
         model.train()
         optimizer.zero_grad()
@@ -18,6 +18,7 @@ def train(model, data, optimizer, epochs=200):
         if epoch % 20 == 0:
             print(f"Epoch {epoch:03d} | Loss: {loss:.4f}")
 
+    return model
 
 def evaluate(model, data):
     model.eval()
@@ -40,7 +41,7 @@ def run_training(data, model_type="gcn", hidden_dim=64, lr=0.005, epochs=200):
 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=5e-4)
 
-    train(model, data, optimizer, epochs)
+    train_model(model, data, optimizer, epochs)
     train_acc, val_acc, test_acc = evaluate(model, data)
 
     print(f"Train Acc: {train_acc:.4f}")
