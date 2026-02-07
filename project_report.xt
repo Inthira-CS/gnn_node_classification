@@ -1,0 +1,34 @@
+====================================================
+PROJECT REPORT: NODE CLASSIFICATION USING GCN
+====================================================
+
+1. PROJECT OVERVIEW
+This project implements a Graph Convolutional Network (GCN) designed for node classification tasks. The system processes graph-structured data where nodes represent entities and edges represent relationships, assigning each node to one of four predefined categories.
+
+2. SYSTEM ARCHITECTURE
+The project is built using a modular Pythonic structure:
+* Data Module: Generates the graph topology and node features.
+* Model Module: Contains the GCN architecture definition.
+* Training Module: Handles the optimization logic and loss calculation.
+* Evaluation Module: Computes performance metrics (Accuracy and F1-score).
+
+
+
+3. MODEL SPECIFICATIONS
+The model architecture and training parameters are configured as follows:
+* Hidden Layers: 64 hidden units.
+* Output Classes: 4 distinct categories.
+* Dropout Rate: 0.5 (applied to prevent overfitting).
+* Optimizer: Adam.
+* Learning Rate: 0.01.
+
+4. METHODOLOGY
+The execution follows a standard machine learning pipeline:
+* Graph Initialization: Loading node features (x) and adjacency matrices (edge_index).
+* Training: The model learns spatial representations through multiple message-passing iterations.
+* Evaluation: Post-training, the model is switched to evaluation mode to generate predictions on the test set mask.
+
+5. RESULTS & METRICS
+The model performance is quantified using:
+* Test Accuracy: Measures the percentage of correctly predicted node labels.
+* Test F1-Score: Provides a balanced view of precision and recall across all four classes.
